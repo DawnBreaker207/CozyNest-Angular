@@ -11,17 +11,21 @@ import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
-import { AddComponent } from './admin/components/products/add/add.component';
-import { EditComponent } from './admin/components/products/edit/edit.component';
-import { ListCategoryComponent } from './admin/components/category/list/list.component';
+import { AddProductComponent } from './admin/components/products/add/add.component';
+import { EditProductComponent } from './admin/components/products/edit/edit.component';
 import { ListProductComponent } from './admin/components/products/list/list.component';
+import { AddCategoryComponent } from './admin/components/category/add/add.component';
+import { EditCategoryComponent } from './admin/components/category/edit/edit.component';
+import { ListCategoryComponent } from './admin/components/category/list/list.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ListCategoryComponent,
-    AddComponent,
-    EditComponent,
     ListProductComponent,
+    AddProductComponent,
+    EditProductComponent,
+    ListCategoryComponent,
+    AddCategoryComponent,
+    EditCategoryComponent,
   ],
   imports: [
     BrowserModule,

@@ -26,7 +26,6 @@ export class ListCategoryComponent implements OnInit {
   }
   displayColumn: string[] = ['name', 'type', 'options'];
   onDelete(id: string) {
-    return id;
-    // return this.service.delete$(id);
+    return this.service.delete$(id);
   }
 }

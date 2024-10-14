@@ -17,4 +17,33 @@ export class CategoryService {
       map(category => category.res),
       catchError(() => of([]))
     );
+  delete$(id: string): Observable<void> {
+    return this.http
+      .delete<void>(`${BASE_PATH}/categories/${id}`)
+      .pipe(catchError(() => of()));
+  }
+  getOne$(id: string): Observable<Category> {
+    return this.http
+      .get<ApiRes<Category>>(`${BASE_PATH}/categories/${id}`)
+      .pipe(
+        map(products => products.res),
+        catchError(() => of())
+      );
+  }
+  create$(inputData: Category): Observable<Category> {
+    return this.http
+      .post<ApiRes<Category>>(`${BASE_PATH}/categories`, inputData)
+      .pipe(
+        map(products => products.res),
+        catchError(() => of())
+      );
+  }
+  update$(id: string, inputData: Category): Observable<Category> {
+    return this.http
+      .put<ApiRes<Category>>(`${BASE_PATH}/categories/${id}`, inputData)
+      .pipe(
+        map(products => products.res),
+        catchError(() => of())
+      );
+  }
 }
