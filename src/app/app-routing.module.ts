@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { ListProductComponent } from './admin/components/products/list/list.component';
-import { ListCategoryComponent } from './admin/components/category/list/list.component';
+import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'product', component: ListProductComponent },
-  { path: 'category', component: ListCategoryComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
+  {
+    path: 'welcome',
+    loadChildren: () =>
+      import('./pages/welcome/welcome.module').then(m => m.WelcomeModule),
+  },
 ];
 
 @NgModule({

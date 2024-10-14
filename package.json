@@ -18,13 +18,13 @@
     "@angular/compiler": "^17.3.0",
     "@angular/core": "^17.3.0",
     "@angular/forms": "^17.3.0",
-    "@angular/material": "^17.3.10",
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
-    "bootstrap": "^5.3.3",
     "cozy-nest": "file:",
+    "ng-zorro-antd": "^17.4.1",
     "rxjs": "~7.8.0",
+    "tailwind-merge": "^2.2.2",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
@@ -40,6 +40,7 @@
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^7.11.0",
     "@typescript-eslint/parser": "^7.11.0",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -49,7 +50,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "postcss": "^8.4.47",
     "prettier": "^3.3.3",
+    "tailwindcss": "^3.4.13",
     "typescript": "~5.4.2"
   }
 }
