@@ -1,9 +1,12 @@
+import { Category } from './category';
+import { Variants } from './variants';
+
 export interface Products {
-  id?: string | number | undefined;
+  _id?: string | number | undefined;
   originId: string;
   name: string;
   thumbnail: string;
-  categoryId: string;
+  categoryId: Category;
   brand: string;
   description: string;
   price: number;
@@ -11,7 +14,7 @@ export interface Products {
   sold: number;
   isSale: boolean;
   SKU: string;
-  variant: any[];
+  variant: Variants[];
   images: string[];
   createAt: string;
   updatedAt: string;

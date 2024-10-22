@@ -5,25 +5,33 @@
       <th>Name</th>
       <th>Category</th>
       <th>Price</th>
+      <th>Thumbnail</th>
       <th>SKU</th>
       <th>Action</th>
     </tr>
   </thead>
   <ng-container *ngIf="products$ | async as products">
     <tr *ngFor="let product of products">
-      <td>{{ product.id }}</td>
+      <td>{{ product._id }}</td>
       <td>{{ product.name }}</td>
-      <td>{{ product.categoryId }}</td>
-      <td>{{ product.price }}</td>
+      <td>{{ product.categoryId.name }}</td>
+      <td>{{ product.price | currency: 'VND' : 'symbol' }}</td>
+      <td>
+        <img [src]="product.thumbnail" alt="" [width]="150" />
+      </td>
       <td>{{ product.SKU }}</td>
       <td>
-        <nz-popconfirm
-          nzTitle="Are you sure?"
-          (nzOnConfirm)="onDelete(product.id)">
-          <button nz-popconfirm nz-button nzType="default" class="bg-red-500">
-            Delete
-          </button>
-        </nz-popconfirm>
+        <button
+          nz-popconfirm
+          nzPopconfirmTitle="Title"
+          [nzBeforeConfirm]="onDelete(product._id)"
+          (nzOnConfirm)="confirm()"
+          (nzOnCancel)="cancel()"
+          nz-button
+          nzType="default"
+          nzDanger>
+          Delete
+        </button>
       </td>
     </tr>
   </ng-container>
