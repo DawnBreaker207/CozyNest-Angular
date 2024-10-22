@@ -1,37 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { registerLocaleData } from '@angular/common';
 import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ProductsService } from './common/services/products.service';
-import { AddProductComponent } from './admin/components/products/add/add.component';
-import { EditProductComponent } from './admin/components/products/edit/edit.component';
-import { ListProductComponent } from './admin/components/products/list/list.component';
-import { AddCategoryComponent } from './admin/components/category/add/add.component';
-import { EditCategoryComponent } from './admin/components/category/edit/edit.component';
-import { ListCategoryComponent } from './admin/components/category/list/list.component';
-import { IconsProviderModule } from './icons-provider.module';
+import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { en_US } from 'ng-zorro-antd/i18n';
-import { registerLocaleData } from '@angular/common';
-import en from '@angular/common/locales/en';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import { IconsProviderModule } from './icons-provider.module';
+import { AdminModule } from './modules/admin/admin.module';
 
 registerLocaleData(en);
 @NgModule({
-  declarations: [
-    AppComponent,
-    ListProductComponent,
-    AddProductComponent,
-    EditProductComponent,
-    ListCategoryComponent,
-    AddCategoryComponent,
-    EditCategoryComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,10 +26,10 @@ registerLocaleData(en);
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
+    AdminModule,
   ],
   providers: [
     provideAnimationsAsync(),
-    ProductsService,
     { provide: NZ_I18N, useValue: en_US },
     provideHttpClient(),
   ],
