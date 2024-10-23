@@ -30,6 +30,5 @@ const route: Routes = [{ path: '', component: VariantComponent }];
     NzGridModule,
     RouterModule.forChild(route),
   ],
-  exports: [RouterModule],
 })
 export class VariantModule {}

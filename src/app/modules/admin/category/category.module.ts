@@ -27,6 +27,6 @@ const routes: Routes = [
     EditCategoryComponent,
   ],
   imports: [CommonModule, RouterModule.forChild(routes)],
-  exports: [ListCategoryComponent, RouterModule],
+  exports: [],
 })
 export class CategoryModule {}

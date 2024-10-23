@@ -19,8 +19,21 @@
       [nzInlineCollapsed]="isCollapsed">
       <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
         <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/admin/product">Product</a>
+          <li nz-submenu nzTitle="Product">
+            <ul>
+              <li
+                nz-menu-item
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: false }">
+                <a [routerLink]="['/admin/product']">List</a>
+              </li>
+              <li
+                nz-menu-item
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: false }">
+                <a [routerLink]="['/admin/product/add']">Add</a>
+              </li>
+            </ul>
           </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/admin/category">Category</a>
@@ -56,9 +69,14 @@
       </div>
     </nz-header>
     <nz-content>
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>User</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+      </nz-breadcrumb>
       <div class="inner-content">
-        <router-outlet></router-outlet>
+        <router-outlet />
       </div>
     </nz-content>
+    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
   </nz-layout>
 </nz-layout>

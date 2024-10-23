@@ -7,7 +7,8 @@ import { AdminComponent } from './admin.component';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { IconsProviderModule } from '@/app/icons-provider.module';
-
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 @NgModule({
   declarations: [AdminComponent],
   imports: [
@@ -18,6 +19,9 @@ import { IconsProviderModule } from '@/app/icons-provider.module';
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
+    NzDropDownModule,
+    NzLayoutModule,
+    NzBreadCrumbModule,
   ],
 })
 export class AdminModule {}

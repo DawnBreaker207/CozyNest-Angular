@@ -1,38 +1,48 @@
-<nz-table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Thumbnail</th>
-      <th>SKU</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <ng-container *ngIf="products$ | async as products">
-    <tr *ngFor="let product of products">
-      <td>{{ product._id }}</td>
-      <td>{{ product.name }}</td>
-      <td>{{ product.categoryId.name }}</td>
-      <td>{{ product.price | currency: 'VND' : 'symbol' }}</td>
-      <td>
-        <img [src]="product.thumbnail" alt="" [width]="150" />
-      </td>
-      <td>{{ product.SKU }}</td>
-      <td>
-        <button
-          nz-popconfirm
-          nzPopconfirmTitle="Title"
-          [nzBeforeConfirm]="onDelete(product._id)"
-          (nzOnConfirm)="confirm()"
-          (nzOnCancel)="cancel()"
-          nz-button
-          nzType="default"
-          nzDanger>
-          Delete
-        </button>
-      </td>
-    </tr>
-  </ng-container>
-</nz-table>
+<ng-container *ngIf="products$ | async as products">
+  <nz-table [nzData]="products" nzShowPagination nzShowSizeChanger>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Thumbnail</th>
+        <th>SKU</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product._id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.categoryId.name }}</td>
+        <td>{{ product.price | currency: 'VND' : 'symbol' }}</td>
+        <td>
+          <img [src]="product.thumbnail" alt="" [width]="150" />
+        </td>
+        <td>{{ product.SKU }}</td>
+        <td>
+          <button
+            nz-button
+            nzType="default"
+            class="bg-yellow-400 hover:bg-yellow-600">
+            Edit
+          </button>
+          <nz-divider nzType="vertical"></nz-divider>
+          <button
+            nz-popconfirm
+            nzPopconfirmTitle="Title"
+            [nzBeforeConfirm]="onConfirm"
+            (nzOnConfirm)="onDelete(product._id)"
+            (nzOnCancel)="cancel()"
+            nz-button
+            nzType="primary"
+            nzDanger>
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</ng-container>

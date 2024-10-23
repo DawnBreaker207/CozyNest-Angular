@@ -26,18 +26,15 @@ export class VariantComponent {
   submitForm(): void {
     console.log('submit', this.validateForm.value);
   }
-
   resetForm(e: MouseEvent): void {
     e.preventDefault();
     this.validateForm.reset();
   }
-
   validateConfirmPassword(): void {
     setTimeout(() =>
       this.validateForm.controls.confirm.updateValueAndValidity()
     );
   }
-
   userNameAsyncValidator: AsyncValidatorFn = (control: AbstractControl) =>
     new Observable((observer: Observer<ValidationErrors | null>) => {
       setTimeout(() => {
@@ -50,7 +47,6 @@ export class VariantComponent {
         observer.complete();
       }, 1000);
     });
-
   confirmValidator: ValidatorFn = (control: AbstractControl) => {
     if (!control.value) {
       return { error: true, required: true };
@@ -59,7 +55,6 @@ export class VariantComponent {
     }
     return {};
   };
-
   constructor(private fb: NonNullableFormBuilder) {
     this.validateForm = this.fb.group({
       userName: ['', [Validators.required], [this.userNameAsyncValidator]],

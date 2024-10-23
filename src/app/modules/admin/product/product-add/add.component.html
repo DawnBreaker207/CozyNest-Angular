@@ -1,1 +1,114 @@
-<p>add works!</p>
+<form nz-form [formGroup]="formProduct" (ngSubmit)="submitForm()">
+  <!-- Origin ID -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired> Origin ID </nz-form-label>
+    <nz-form-control nzSpan="1-24" nzErrorTip="errorTip">
+      <input
+        nz-input
+        formControlName="originId"
+        id="originId"
+        name="originId"
+        placeholder="Origin ID" />
+    </nz-form-control>
+  </nz-form-item>
+  <!-- Name -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired> Name </nz-form-label>
+    <nz-form-control nzSpan="1-24" nzErrorTip="errorTip">
+      <input
+        nz-input
+        formControlName="name"
+        id="name"
+        name="name"
+        placeholder="Name" />
+    </nz-form-control>
+  </nz-form-item>
+  <!-- Thumbnail -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired> Thumbnail </nz-form-label>
+    <nz-form-control nzSpan="1-24" nzErrorTip="errorTip">
+      <input
+        nz-input
+        formControlName="thumbnail"
+        id="thumbnail"
+        name="thumbnail"
+        placeholder="Thumbnail" />
+    </nz-form-control>
+  </nz-form-item>
+  <!-- Category ID -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired> Category </nz-form-label>
+    <nz-select
+      formControlName="categoryId"
+      name="categoryId"
+      nzPlaceHolder="Choose"
+      nzAllowClear>
+      <ng-container *ngIf="categories$ | async as categories">
+        <nz-option
+          *ngFor="let item of categories"
+          [nzLabel]="item.name"
+          [nzValue]="item._id"
+          [nzDisabled]="item.isHidden">
+        </nz-option>
+      </ng-container>
+    </nz-select>
+  </nz-form-item>
+  <!-- Brand -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired> Brand </nz-form-label>
+    <nz-form-control nzSpan="1-24" nzErrorTip="errorTip">
+      <input
+        nz-input
+        formControlName="brand"
+        id="brand"
+        name="brand"
+        placeholder="Brand" />
+    </nz-form-control>
+  </nz-form-item>
+  <!-- Description -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired>
+      Description
+    </nz-form-label>
+    <nz-form-control nzSpan="1-24" nzErrorTip="errorTip">
+      <nz-textarea-count [nzMaxCharacterCount]="100">
+        <textarea
+          nz-input
+          formControlName="description"
+          id="remark"
+          name="remark"
+          rows="4"
+          placeholder="Description"></textarea>
+      </nz-textarea-count>
+    </nz-form-control>
+  </nz-form-item>
+  <!-- Price -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired> Price </nz-form-label>
+    <nz-form-control nzSpan="1-24" nzErrorTip="errorTip">
+      <input
+        nz-input
+        formControlName="price"
+        id="price"
+        name="price"
+        type="number"
+        placeholder="Price" />
+    </nz-form-control>
+  </nz-form-item>
+  <!-- SKU -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired> SKU </nz-form-label>
+    <nz-form-control nzSpan="1-24" nzErrorTip="errorTip">
+      <input
+        nz-input
+        formControlName="SKU"
+        id="SKU"
+        name="SKU"
+        placeholder="SKU" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <button nz-button nzType="primary" nzShape="round" type="submit">
+    Submit
+  </button>
+</form>

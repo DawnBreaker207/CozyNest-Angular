@@ -10,12 +10,12 @@ export interface Products {
   brand: string;
   description: string;
   price: number;
-  discount: number;
-  sold: number;
-  isSale: boolean;
+  discount?: number;
+  sold?: number;
+  isSale?: boolean;
   SKU: string;
-  variant: Variants[];
-  images: string[];
-  createAt: string;
-  updatedAt: string;
+  variant?: Variants[];
+  images?: string[];
+  createAt?: string;
+  updatedAt?: string;
 }
