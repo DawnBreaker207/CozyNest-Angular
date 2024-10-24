@@ -1,5 +1,5 @@
 <ng-container *ngIf="products$ | async as products">
-  <nz-table [nzData]="products" nzShowPagination nzShowSizeChanger>
+  <nz-table #nzTable [nzData]="products" nzShowPagination nzShowSizeChanger>
     <thead>
       <tr>
         <th>Id</th>
@@ -13,7 +13,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let product of products">
+      <tr *ngFor="let product of nzTable.data">
         <td>{{ product._id }}</td>
         <td>{{ product.name }}</td>
         <td>{{ product.categoryId.name }}</td>
@@ -23,12 +23,15 @@
         </td>
         <td>{{ product.SKU }}</td>
         <td>
-          <button
+          <nz-divider nzType="vertical"></nz-divider>
+          <a
             nz-button
-            nzType="default"
+            nzType="text"
+            [routerLink]="['edit/', product._id]"
+            routerLinkActive="router-link-active"
             class="bg-yellow-400 hover:bg-yellow-600">
             Edit
-          </button>
+          </a>
           <nz-divider nzType="vertical"></nz-divider>
           <button
             nz-popconfirm
@@ -41,6 +44,7 @@
             nzDanger>
             Delete
           </button>
+          <nz-divider nzType="vertical"></nz-divider>
         </td>
       </tr>
     </tbody>

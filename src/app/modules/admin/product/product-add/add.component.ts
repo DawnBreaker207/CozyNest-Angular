@@ -35,15 +35,14 @@ export class AddProductComponent implements OnInit {
     });
   }
   submitForm = () => {
-    const productData = this.formProduct.value as Products;
-    console.log(productData);
-
-    this.productService.create$(productData).subscribe(() => {
-      this.notification.createNotification(
-        'success',
-        'Create Product Success',
-        'Product created successfully'
-      );
-    });
+    this.productService
+      .create$(this.formProduct.value as Products)
+      .subscribe(() => {
+        this.notification.createNotification(
+          'success',
+          'Create Product Success',
+          'Product created successfully'
+        );
+      });
   };
 }

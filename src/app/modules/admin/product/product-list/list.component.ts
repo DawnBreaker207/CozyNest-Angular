@@ -9,7 +9,6 @@ import { Observable, Subject, takeUntil } from 'rxjs';
   styleUrl: './list.component.css',
 })
 export class ListProductComponent implements OnInit, OnDestroy {
-  selectedProductId: string | number | undefined;
   products$: Observable<Products[]> = new Observable();
   private unsubscribe = new Subject<void>();
   ngOnInit(): void {
