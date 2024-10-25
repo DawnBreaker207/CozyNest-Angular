@@ -10,12 +10,13 @@ import {
   Validators,
 } from '@angular/forms';
 import { Observable, Observer } from 'rxjs';
+
 @Component({
-  selector: 'app-variant',
-  templateUrl: './variant.component.html',
-  styleUrl: './variant.component.css',
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrl: './add.component.css',
 })
-export class VariantComponent {
+export class AddVariantComponent {
   validateForm: FormGroup<{
     userName: FormControl<string>;
     email: FormControl<string>;

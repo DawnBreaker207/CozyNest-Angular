@@ -19,7 +19,7 @@ export class AddCategoryComponent implements OnInit {
   ngOnInit() {
     this.formCategory = this.fb.group({
       name: ['', [Validators.required]],
-      type: [''],
+      type: ['', [Validators.required]],
     });
   }
   submitForm = () => {

@@ -3,10 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { Products } from '../../types/products';
+import { ApiRes } from '../../types/api';
 
-export interface ApiRes<T> {
-  res: T;
-}
 const BASE_PATH = environment.apiUrl;
 @Injectable({
   providedIn: 'root',

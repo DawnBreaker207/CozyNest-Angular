@@ -1,1 +1,31 @@
-<p>login works!</p>
+<form nz-form [formGroup]="formAuth" (ngSubmit)="submitForm()">
+  <!-- Email -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired> Email </nz-form-label>
+    <nz-form-control nzSpan="1-24" nzErrorTip="errorTip">
+      <input
+        nz-input
+        formControlName="email"
+        id="email"
+        name="email"
+        placeholder="Email" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Password -->
+  <nz-form-item nzFlex>
+    <nz-form-label nzFor="" nzSpan="1-24" nzRequired> Password </nz-form-label>
+    <nz-form-control nzSpan="1-24" nzErrorTip="errorTip">
+      <input
+        nz-input
+        formControlName="password"
+        id="password"
+        name="password"
+        placeholder="Password" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <button nz-button nzType="primary" nzShape="round" type="submit">
+    Submit
+  </button>
+</form>

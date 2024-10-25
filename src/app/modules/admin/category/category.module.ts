@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AddCategoryComponent } from './category-add/add.component';
-import { EditCategoryComponent } from './category-edit/edit.component';
-import { ListCategoryComponent } from './category-list/list.component';
+import { AddCategoryComponent } from './add/add.component';
+import { EditCategoryComponent } from './edit/edit.component';
+import { ListCategoryComponent } from './list/list.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzInputModule } from 'ng-zorro-antd/input';

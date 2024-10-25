@@ -1,22 +1,30 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VariantComponent } from './variant.component';
-import { OptionPropertiesComponent } from './option-properties/option-properties.component';
-import { OptionValueComponent } from './option-value/option-value.component';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzSelectModule } from 'ng-zorro-antd/select';
-import { NzGridModule } from 'ng-zorro-antd/grid';
-import { RouterModule, Routes } from '@angular/router';
+import { AddVariantComponent } from './add/add.component';
+import { ListVariantComponent } from './list/list.component';
+import { OptionPropertiesComponent } from './option-properties/option-properties.component';
+import { OptionValueComponent } from './option-value/option-value.component';
+import { EditVariantComponent } from './edit/edit.component';
 
-const route: Routes = [{ path: '', component: VariantComponent }];
+const route: Routes = [
+  { path: '', component: ListVariantComponent },
+  { path: 'add', component: AddVariantComponent },
+  { path: 'edit/:id', component: EditVariantComponent },
+];
 @NgModule({
   declarations: [
-    VariantComponent,
     OptionPropertiesComponent,
     OptionValueComponent,
+    AddVariantComponent,
+    ListVariantComponent,
+    EditVariantComponent,
   ],
   imports: [
     CommonModule,

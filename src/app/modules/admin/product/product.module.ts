@@ -12,9 +12,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzTableModule } from 'ng-zorro-antd/table';
-import { AddProductComponent } from './product-add/add.component';
-import { EditProductComponent } from './product-edit/edit.component';
-import { ListProductComponent } from './product-list/list.component';
+import { AddProductComponent } from './add/add.component';
+import { EditProductComponent } from './edit/edit.component';
+import { ListProductComponent } from './list/list.component';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 const routes: Routes = [
   {

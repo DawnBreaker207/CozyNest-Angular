@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 
 import { AdminModule } from './modules/admin/admin.module';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { HomeModule } from './modules/home/home.module';
 registerLocaleData(en);
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ registerLocaleData(en);
     FormsModule,
     AdminModule,
     NzNotificationModule,
+    HomeModule,
   ],
   providers: [
     provideAnimationsAsync(),

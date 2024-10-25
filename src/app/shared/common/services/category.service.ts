@@ -2,8 +2,8 @@ import { environment } from '@/environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
-import { ApiRes } from './products.service';
 import { Category } from '../../types/category';
+import { ApiRes } from '../../types/api';
 
 const BASE_PATH = environment.apiUrl;
 @Injectable({
