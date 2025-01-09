@@ -1,0 +1,75 @@
+<div
+  class="container py-6"
+  style="background-color: #f3f4f6; min-height: 100vh">
+  <div
+    class="bg-white p-8 rounded-lg shadow-md flex flex-col md:flex-row justify-between mx-auto"
+    style="max-width: 1200px">
+    <!-- Phần thông tin liên hệ -->
+    <div class="flex-1 md:pr-6 mb-6 md:mb-0">
+      <h3 class="text-lg font-bold mb-4" style="color: #333">Liên hệ</h3>
+      <p>
+        <strong>Hà Nội:</strong> số 03 Lê Trọng Tấn, Khương Mai, Thanh Xuân, Hà
+        Nội
+      </p>
+      <p><strong>Hotline:</strong> 0338261234</p>
+      <p><strong>Email:</strong> nguyenthiphuonganh&#64;gmail.com</p>
+
+      <!-- Biểu mẫu liên hệ -->
+      <form class="mt-6">
+        <div class="mb-4">
+          <label for="name" class="block font-medium mb-2">Tên *</label>
+          <input
+            id="name"
+            formControlName="name"
+            type="text"
+            placeholder="Tên của bạn"
+            class="w-full p-2 border border-gray-300 rounded" />
+          <div class="text-red-500 text-sm">Vui lòng nhập tên của bạn!</div>
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block font-medium mb-2"
+            >Địa chỉ email *</label
+          >
+          <input
+            id="email"
+            formControlName="email"
+            type="email"
+            placeholder="Địa chỉ email của bạn"
+            class="w-full p-2 border border-gray-300 rounded" />
+          <div class="text-red-500 text-sm">
+            Vui lòng nhập địa chỉ email hợp lệ!
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="message" class="block font-medium mb-2">Nội dung *</label>
+          <textarea
+            id="message"
+            formControlName="message"
+            rows="4"
+            placeholder="Nội dung tin nhắn"
+            class="w-full p-2 border border-gray-300 rounded"></textarea>
+          <div class="text-red-500 text-sm">Vui lòng nhập nội dung!</div>
+        </div>
+        <p class="text-gray-500 mb-4">* Thông tin bắt buộc</p>
+        <button
+          type="submit"
+          class="w-full py-2 text-white font-medium rounded"
+          [style.backgroundColor]="'#ff7f50'"
+          [style.borderColor]="'#ff7f50'">
+          Gửi
+        </button>
+      </form>
+    </div>
+
+    <!-- Phần bản đồ Google -->
+    <div
+      class="flex-1 h-72 md:h-auto rounded-lg overflow-hidden shadow-md"
+      style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14898.355252066514!2d105.79072489324733!3d21.009113521545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135adb1e9b63c6b%3A0xc7ad968c046d18fa!2sVincom%20Center%20Tr%E1%BA%A7n%20Duy%20H%C6%B0ng!5e0!3m2!1svi!2s!4v1726492628498!5m2!1svi!2s"
+        style="border: 0; width: 100%; height: 100%"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+  </div>
+</div>
