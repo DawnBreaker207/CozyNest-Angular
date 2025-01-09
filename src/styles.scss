@@ -1,10 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 @tailwind base;
-@layer tailwind-base ,antd;
+@layer tailwind-base;
 
 @layer tailwind-base {
   @tailwind base;
 }
-
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    @apply font-spectral;
+  }
+  .container {
+    @apply 2xl:px-16 lg:px-10 md:px-8 sm:px-6 px-4 mx-auto;
+  }
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

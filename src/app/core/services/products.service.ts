@@ -17,11 +17,7 @@ export class ProductsService {
       map(products => products.res),
       catchError(() => of([]))
     );
-  delete$(id: string | number | undefined): Observable<void> {
-    return this.http
-      .delete<void>(`${BASE_PATH}/products/${id}`)
-      .pipe(catchError(() => of()));
-  }
+
   getOne$(id: string): Observable<Products> {
     return this.http.get<ApiRes<Products>>(`${BASE_PATH}/products/${id}`).pipe(
       map(products => products.res),
@@ -43,5 +39,15 @@ export class ProductsService {
         map(products => products.res),
         catchError(() => of())
       );
+  }
+  delete$(id: string | number | undefined): Observable<void> {
+    return this.http
+      .delete<void>(`${BASE_PATH}/products/${id}`)
+      .pipe(catchError(() => of()));
+  }
+  hide$(id: string, input: Partial<Products>): Observable<void> {
+    return this.http
+      .patch<void>(`${BASE_PATH}/products/${id}`, input)
+      .pipe(catchError(() => of()));
   }
 }

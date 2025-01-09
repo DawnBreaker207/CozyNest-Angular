@@ -11,7 +11,7 @@ const BASE_PATH = environment.apiUrl;
 })
 export class AuthService {
   constructor(private http: HttpClient) {}
-  register(input: User): Observable<User> {
+  register$(input: Partial<User>): Observable<User> {
     return this.http
       .post<ApiRes<User>>(`${BASE_PATH}/auth/register`, input)
       .pipe(
@@ -19,10 +19,18 @@ export class AuthService {
         catchError(() => of())
       );
   }
-  login(input: User): Observable<User> {
+  login$(input: Partial<User>): Observable<User> {
     return this.http.post<ApiRes<User>>(`${BASE_PATH}/auth/login`, input).pipe(
       map(user => user.res),
       catchError(() => of())
     );
+  }
+  forgot$(input: Partial<User>) {
+    return this.http
+      .post<ApiRes<User>>(`${BASE_PATH}/users/forgotPassword`, input)
+      .pipe(
+        map(user => user.res),
+        catchError(() => of())
+      );
   }
 }
