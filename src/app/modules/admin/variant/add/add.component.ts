@@ -8,13 +8,43 @@ import {
   ValidationErrors,
   ValidatorFn,
   Validators,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { Observable, Observer } from 'rxjs';
+import { ɵNzTransitionPatchDirective } from 'ng-zorro-antd/core/transition-patch';
+import { NzWaveDirective } from 'ng-zorro-antd/core/wave';
+import { NzButtonComponent } from 'ng-zorro-antd/button';
+import {
+  NzInputDirective,
+  NzTextareaCountComponent,
+} from 'ng-zorro-antd/input';
+import { NzRowDirective, NzColDirective } from 'ng-zorro-antd/grid';
+import {
+  NzFormDirective,
+  NzFormItemComponent,
+  NzFormLabelComponent,
+  NzFormControlComponent,
+} from 'ng-zorro-antd/form';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrl: './add.component.scss',
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    NzFormDirective,
+    NzRowDirective,
+    NzFormItemComponent,
+    NzColDirective,
+    NzFormLabelComponent,
+    NzFormControlComponent,
+    NzInputDirective,
+    NzTextareaCountComponent,
+    NzButtonComponent,
+    NzWaveDirective,
+    ɵNzTransitionPatchDirective,
+  ],
 })
 export class AddVariantComponent {
   validateForm: FormGroup<{

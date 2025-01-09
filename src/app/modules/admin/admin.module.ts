@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AdminRoutingModule } from './admin-routing.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+
 import { RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
@@ -10,10 +10,8 @@ import { IconsProviderModule } from '@/app/icons-provider.module';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 @NgModule({
-  declarations: [AdminComponent],
   imports: [
     CommonModule,
-    DashboardModule,
     AdminRoutingModule,
     RouterModule,
     IconsProviderModule,
@@ -22,6 +20,7 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
     NzDropDownModule,
     NzLayoutModule,
     NzBreadCrumbModule,
+    AdminComponent,
   ],
 })
 export class AdminModule {}

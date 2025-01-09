@@ -19,13 +19,6 @@ const route: Routes = [
   { path: 'edit/:id', component: EditVariantComponent },
 ];
 @NgModule({
-  declarations: [
-    OptionPropertiesComponent,
-    OptionValueComponent,
-    AddVariantComponent,
-    ListVariantComponent,
-    EditVariantComponent,
-  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -34,9 +27,13 @@ const route: Routes = [
     NzFormModule,
     NzInputModule,
     NzSelectModule,
-
     NzGridModule,
     RouterModule.forChild(route),
+    OptionPropertiesComponent,
+    OptionValueComponent,
+    AddVariantComponent,
+    ListVariantComponent,
+    EditVariantComponent,
   ],
 })
 export class VariantModule {}

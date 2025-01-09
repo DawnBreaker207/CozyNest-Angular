@@ -35,11 +35,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    ListProductComponent,
-    AddProductComponent,
-    EditProductComponent,
-  ],
   imports: [
     CommonModule,
     NzTableModule,
@@ -53,6 +48,9 @@ const routes: Routes = [
     NzInputModule,
     NzDividerModule,
     RouterModule.forChild(routes),
+    ListProductComponent,
+    AddProductComponent,
+    EditProductComponent,
   ],
   providers: [ProductsService, CategoryService, NotificationsService],
 })

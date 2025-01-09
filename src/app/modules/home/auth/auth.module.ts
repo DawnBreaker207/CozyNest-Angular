@@ -26,7 +26,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, LoginComponent],
   imports: [
     CommonModule,
     NzButtonModule,
@@ -37,6 +36,8 @@ const routes: Routes = [
     NzInputModule,
     NzDividerModule,
     RouterModule.forChild(routes),
+    LoginComponent,
+    RegisterComponent,
   ],
   providers: [AuthService],
 })

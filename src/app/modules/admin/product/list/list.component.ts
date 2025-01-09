@@ -2,11 +2,46 @@ import { ProductsService } from '@/app/core/services/products.service';
 import { Products } from '@/app/shared/types/products';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject, takeUntil } from 'rxjs';
+import { NzPopconfirmDirective } from 'ng-zorro-antd/popconfirm';
+import { NzWaveDirective } from 'ng-zorro-antd/core/wave';
+import { RouterLinkActive, RouterLink } from '@angular/router';
+import { ɵNzTransitionPatchDirective } from 'ng-zorro-antd/core/transition-patch';
+import { NzButtonComponent } from 'ng-zorro-antd/button';
+import { NzDividerComponent } from 'ng-zorro-antd/divider';
+import {
+  NzTableComponent,
+  NzTheadComponent,
+  NzTrDirective,
+  NzTableCellDirective,
+  NzThMeasureDirective,
+  NzTbodyComponent,
+} from 'ng-zorro-antd/table';
+import { NgIf, NgFor, AsyncPipe, CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
+  standalone: true,
+  imports: [
+    NgIf,
+    NzTableComponent,
+    NzTheadComponent,
+    NzTrDirective,
+    NzTableCellDirective,
+    NzThMeasureDirective,
+    NzTbodyComponent,
+    NgFor,
+    NzDividerComponent,
+    NzButtonComponent,
+    ɵNzTransitionPatchDirective,
+    RouterLinkActive,
+    RouterLink,
+    NzWaveDirective,
+    NzPopconfirmDirective,
+    AsyncPipe,
+    CurrencyPipe,
+  ],
 })
 export class ListProductComponent implements OnInit, OnDestroy {
   products$: Observable<Products[]> = new Observable();

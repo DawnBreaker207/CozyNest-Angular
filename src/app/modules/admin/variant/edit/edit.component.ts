@@ -4,5 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.scss',
+  standalone: true,
 })
 export class EditVariantComponent {}
