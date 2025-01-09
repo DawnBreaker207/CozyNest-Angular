@@ -1,22 +1,18 @@
 import { Component } from '@angular/core';
-import {
-  NzBreadCrumbComponent,
-  NzBreadCrumbItemComponent,
-} from 'ng-zorro-antd/breadcrumb';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
-import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
 import {
-  NzMenuDirective,
-  NzSubMenuComponent,
-  NzMenuItemComponent,
-} from 'ng-zorro-antd/menu';
-import {
-  NzLayoutComponent,
-  NzSiderComponent,
-  NzHeaderComponent,
   NzContentComponent,
   NzFooterComponent,
+  NzHeaderComponent,
+  NzLayoutComponent,
+  NzSiderComponent,
 } from 'ng-zorro-antd/layout';
+import {
+  NzMenuDirective,
+  NzMenuItemComponent,
+  NzSubMenuComponent,
+} from 'ng-zorro-antd/menu';
 
 @Component({
   selector: 'app-admin',
@@ -32,8 +28,6 @@ import {
     NzHeaderComponent,
     NzIconDirective,
     NzContentComponent,
-    NzBreadCrumbComponent,
-    NzBreadCrumbItemComponent,
     RouterOutlet,
     NzFooterComponent,
   ],

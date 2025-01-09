@@ -4,6 +4,7 @@ import { RegisterComponent } from './modules/auth/register/register.component';
 import { AdminComponent } from './layout/admin/admin.component';
 import { ClientComponent } from './layout/client/client.component';
 import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
+import { IntroductionComponent } from './modules/client/introduction/introduction.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
@@ -43,6 +44,10 @@ export const routes: Routes = [
       {
         path: 'register',
         component: RegisterComponent,
+      },
+      {
+        path: 'introduction',
+        component: IntroductionComponent,
       },
     ],
   },
