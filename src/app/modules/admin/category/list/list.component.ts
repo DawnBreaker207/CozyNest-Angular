@@ -1,4 +1,4 @@
-import { CategoryService } from '@/app/shared/common/services/category.service';
+import { CategoryService } from '@/app/core/services/category.service';
 import { Category } from '@/app/shared/types/category';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject, takeUntil } from 'rxjs';

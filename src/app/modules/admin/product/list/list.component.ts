@@ -1,4 +1,4 @@
-import { ProductsService } from '@/app/shared/common/services/products.service';
+import { ProductsService } from '@/app/core/services/products.service';
 import { Products } from '@/app/shared/types/products';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subject, takeUntil } from 'rxjs';

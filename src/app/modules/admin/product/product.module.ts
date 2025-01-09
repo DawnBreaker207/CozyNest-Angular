@@ -1,6 +1,6 @@
-import { CategoryService } from '@/app/shared/common/services/category.service';
-import { NotificationsService } from '@/app/shared/common/services/notifications.service';
-import { ProductsService } from '@/app/shared/common/services/products.service';
+import { CategoryService } from '@/app/core/services/category.service';
+import { NotificationsService } from '@/app/core/services/notifications.service';
+import { ProductsService } from '@/app/core/services/products.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

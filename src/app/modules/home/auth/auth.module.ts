@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { AuthService } from '@/app/shared/common/services/auth.service';
+import { AuthService } from '@/app/core/services/auth.service';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';

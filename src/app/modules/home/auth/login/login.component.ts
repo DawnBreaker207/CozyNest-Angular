@@ -1,5 +1,5 @@
-import { AuthService } from '@/app/shared/common/services/auth.service';
-import { NotificationsService } from '@/app/shared/common/services/notifications.service';
+import { AuthService } from '@/app/core/services/auth.service';
+import { NotificationsService } from '@/app/core/services/notifications.service';
 import { User } from '@/app/shared/types/user';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
