@@ -20,8 +20,6 @@ import {
 
 @Component({
   selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrl: './admin.component.scss',
   standalone: true,
   imports: [
     NzLayoutComponent,
@@ -39,6 +37,8 @@ import {
     RouterOutlet,
     NzFooterComponent,
   ],
+  templateUrl: './admin.component.html',
+  styleUrl: './admin.component.scss',
 })
 export class AdminComponent {
   isCollapsed = false;

@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm = () => {
-    this.authService.login(this.formAuth.value as User).subscribe(data => {
+    this.authService.login$(this.formAuth.value as User).subscribe(data => {
       if (data) {
         this.notification.createNotification(
           'success',

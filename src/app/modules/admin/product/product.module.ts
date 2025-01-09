@@ -16,23 +16,7 @@ import { AddProductComponent } from './add/add.component';
 import { EditProductComponent } from './edit/edit.component';
 import { ListProductComponent } from './list/list.component';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
-const routes: Routes = [
-  {
-    path: '',
-    component: ListProductComponent,
-    pathMatch: 'full',
-  },
-  {
-    path: 'add',
-    component: AddProductComponent,
-    pathMatch: 'full',
-  },
-  {
-    path: 'edit/:id',
-    component: EditProductComponent,
-    pathMatch: 'prefix',
-  },
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [

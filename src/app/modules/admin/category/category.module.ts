@@ -15,20 +15,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzTableModule } from 'ng-zorro-antd/table';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: ListCategoryComponent,
-  },
-  {
-    path: 'add',
-    component: AddCategoryComponent,
-  },
-  {
-    path: 'edit/:id',
-    component: EditCategoryComponent,
-  },
-];
+const routes: Routes = [];
 @NgModule({
   imports: [
     CommonModule,
