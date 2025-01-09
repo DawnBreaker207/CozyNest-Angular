@@ -10,8 +10,9 @@ import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { AdminModule } from './modules/admin/admin.module';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { CoreModule } from './core/core.module';
+import { AdminModule } from './modules/admin/admin.module';
 import { HomeModule } from './modules/home/home.module';
 registerLocaleData(en);
 @NgModule({
@@ -24,6 +25,7 @@ registerLocaleData(en);
     AdminModule,
     NzNotificationModule,
     HomeModule,
+    CoreModule,
   ],
   providers: [
     provideAnimationsAsync(),
