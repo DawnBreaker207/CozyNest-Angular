@@ -2,10 +2,8 @@ import { Directive } from '@angular/core';
 
 @Directive({
   selector: '[appRoles]',
-  standalone: true
+  standalone: true,
 })
 export class RolesDirective {
-
-  constructor() { }
-
+  constructor() {}
 }
