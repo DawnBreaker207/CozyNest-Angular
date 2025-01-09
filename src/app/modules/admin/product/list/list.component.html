@@ -16,12 +16,11 @@
       <tr *ngFor="let product of nzTable.data">
         <td>{{ product._id }}</td>
         <td>{{ product.name }}</td>
-        <td>{{ product.categoryId.name }}</td>
-        <td>{{ product.price | currency: 'VND' : 'symbol' }}</td>
+        <td>{{ product.category_id }}</td>
         <td>
           <img [src]="product.thumbnail" alt="" [width]="150" />
         </td>
-        <td>{{ product.SKU }}</td>
+        <td>{{ product.sku_id }}</td>
         <td>
           <nz-divider nzType="vertical"></nz-divider>
           <a

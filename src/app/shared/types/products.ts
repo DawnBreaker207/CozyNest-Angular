@@ -1,7 +1,7 @@
 import { Category } from './category';
 import { Variants } from './variants';
 
-export interface Product {
+export interface Products {
   sku_id: string;
   _id: string | number;
   name: string;
