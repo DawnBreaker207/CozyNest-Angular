@@ -1,21 +1,20 @@
 import { Category } from './category';
 import { Variants } from './variants';
 
-export interface Products {
-  _id?: string | number | undefined;
-  originId: string;
+export interface Product {
+  sku_id: string;
+  _id: string | number;
   name: string;
   thumbnail: string;
-  categoryId: Category;
+  category_id: Category;
   brand: string;
   description: string;
-  price: number;
-  discount?: number;
-  sold?: number;
-  isSale?: boolean;
-  SKU: string;
-  variant?: Variants[];
-  images?: string[];
-  createAt?: string;
-  updatedAt?: string;
+  sold: number;
+  isSale: boolean;
+  is_hidden: boolean;
+  images: string[];
+  quantity: number;
+  createdAt: string;
+  updatedAt: string;
+  variants: Variants[];
 }

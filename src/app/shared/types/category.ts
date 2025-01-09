@@ -1,11 +1,12 @@
-import { Products } from './products';
+import { Product } from './products';
 
 export interface Category {
-  _id: string;
+  _id: string | undefined;
   name: string;
   isHidden: boolean;
-  type: string;
-  createAt: string;
-  updateAt: string;
-  products: Products[];
+  thumbnail: string;
+  products: Product[];
+  createdAt: string;
+  updatedAt: string;
+  type: 'normal' | 'default';
 }

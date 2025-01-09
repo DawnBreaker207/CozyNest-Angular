@@ -1,23 +1,19 @@
-import { ProductModule } from '@/app/modules/admin/product/product.module';
-
 export interface Variants {
-  _id: string;
-  product_id: ProductModule;
-  SKU: string;
-  name: string;
-  slug: string;
-  price: number;
-  price_before_discount: number;
-  price_discount_percent: number;
-  stock: number;
-  assets: string[];
-  createdAt: string;
-  updatedAt: string;
-  color: string;
-  option_value: [
-    {
-      label: string;
-      value: string;
-    },
-  ];
+  option_id: {
+    _id: string;
+    name: string;
+  };
+  option_value_id: { _id: string; value: string };
+  sku_id: {
+    price_discount_percent: number;
+    price_before_discount: number;
+    _id: string;
+    SKU: string;
+    name: string;
+    image: string[];
+    price: number;
+    stock: number;
+    sold: number;
+    deleted: boolean;
+  };
 }
