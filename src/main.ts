@@ -10,26 +10,21 @@ import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NZ_I18N, en_US, provideNzI18n } from 'ng-zorro-antd/i18n';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
-import { AppRoutingModule } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes';
 
 registerLocaleData(en);
 
 bootstrapApplication(AppComponent, {
   providers: [
-    importProvidersFrom(
-      BrowserModule,
-      AppRoutingModule,
-      FormsModule,
-      NzNotificationModule
-    ),
     provideAnimationsAsync(),
     { provide: NZ_I18N, useValue: en_US },
-    provideHttpClient(),
-    provideHttpClient(withInterceptorsFromDi()),
     provideNzI18n(en_US),
-    importProvidersFrom(FormsModule),
+    provideRouter(routes),
+    provideHttpClient(withInterceptorsFromDi()),
     provideAnimationsAsync(),
     provideHttpClient(),
+    importProvidersFrom(BrowserModule, FormsModule, NzNotificationModule),
   ],
 }).catch(err => console.error(err));
