@@ -6,7 +6,7 @@ import { Observable, Subject, takeUntil } from 'rxjs';
 @Component({
   selector: 'app-product-list',
   templateUrl: './list.component.html',
-  styleUrl: './list.component.css',
+  styleUrl: './list.component.scss',
 })
 export class ListProductComponent implements OnInit, OnDestroy {
   products$: Observable<Products[]> = new Observable();

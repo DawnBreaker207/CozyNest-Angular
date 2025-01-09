@@ -14,7 +14,7 @@ import { Observable, Observer } from 'rxjs';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrl: './add.component.css',
+  styleUrl: './add.component.scss',
 })
 export class AddVariantComponent {
   validateForm: FormGroup<{

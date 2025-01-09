@@ -1,4 +1,4 @@
-import { CookiesService } from '@/app/core/services/cookies.service';
+import { CookiesService } from '@/app/shared/common/services/cookies.service';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,

@@ -1,5 +1,5 @@
 import { AuthService } from '@/app/core/services/auth.service';
-import { NotificationsService } from '@/app/core/services/notifications.service';
+import { NotificationsService } from '@/app/shared/common/services/notifications.service';
 import { User } from '@/app/shared/types/user';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
   constructor(

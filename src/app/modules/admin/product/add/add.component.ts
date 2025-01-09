@@ -1,5 +1,5 @@
 import { CategoryService } from '@/app/core/services/category.service';
-import { NotificationsService } from '@/app/core/services/notifications.service';
+import { NotificationsService } from '@/app/shared/common/services/notifications.service';
 import { ProductsService } from '@/app/core/services/products.service';
 import { Category } from '@/app/shared/types/category';
 import { Products } from '@/app/shared/types/products';
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-product-add',
   templateUrl: './add.component.html',
-  styleUrl: './add.component.css',
+  styleUrl: './add.component.scss',
 })
 export class AddProductComponent implements OnInit {
   categories$: Observable<Category[]> = new Observable();

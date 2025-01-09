@@ -1,5 +1,5 @@
 import { CategoryService } from '@/app/core/services/category.service';
-import { NotificationsService } from '@/app/core/services/notifications.service';
+import { NotificationsService } from '@/app/shared/common/services/notifications.service';
 import { Category } from '@/app/shared/types/category';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-category-add',
   templateUrl: './add.component.html',
-  styleUrl: './add.component.css',
+  styleUrl: './add.component.scss',
 })
 export class AddCategoryComponent implements OnInit {
   formCategory!: FormGroup;
