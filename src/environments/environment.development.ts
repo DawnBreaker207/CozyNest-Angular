@@ -1,4 +1,6 @@
-export const environment = {
+import { EnvironmentModel } from './environment-model';
+
+export const environment: EnvironmentModel = {
   production: false,
-  apiUrl: '/api',
+  apiUrl: '/api/v1',
 };

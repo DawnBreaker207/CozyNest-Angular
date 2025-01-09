@@ -12,9 +12,6 @@ import { NZ_I18N, en_US, provideNzI18n } from 'ng-zorro-antd/i18n';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { AppRoutingModule } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
-import { CoreModule } from './app/core/core.module';
-import { AdminModule } from './app/modules/admin/admin.module';
-import { HomeModule } from './app/modules/home/home.module';
 
 registerLocaleData(en);
 
@@ -24,10 +21,7 @@ bootstrapApplication(AppComponent, {
       BrowserModule,
       AppRoutingModule,
       FormsModule,
-      AdminModule,
-      NzNotificationModule,
-      HomeModule,
-      CoreModule
+      NzNotificationModule
     ),
     provideAnimationsAsync(),
     { provide: NZ_I18N, useValue: en_US },
