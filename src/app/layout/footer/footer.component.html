@@ -1,1 +1,370 @@
-<p>footer works!</p>
+<footer class="bg-black text-white py-2">
+  <div class="bg-black py-1 container">
+    <div
+      class="mx-auto flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+      <div
+        class="flex flex-col md:flex-row items-center space-x-0 md:space-x-4 p-2 space-y-2 md:space-y-0">
+        <span class="text-lg font-semibold text-white">Đăng ký nhận tin</span>
+        <div class="flex items-center bg-card p-2 shadow-md">
+          <nz-input-group
+            [nzPrefix]="prefixIcon"
+            class="w-full md:w-auto py-2 m-0.5 rounded-lg">
+            <ng-template #prefixIcon>
+              <i nz-icon nzType="mail"></i>
+            </ng-template>
+            <input nz-input placeholder="Nhập email của bạn" size="large" />
+          </nz-input-group>
+          <button
+            nz-button
+            class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold px-6 py-5 w-sm md:w-auto rounded-lg"
+            nzType="primary">
+            Đăng ký
+          </button>
+        </div>
+      </div>
+
+      <!--  -->
+      <div
+        class="hidden md:flex flex-col md:flex-row items-center space-x-0 md:space-x-4 space-y-2 md:space-y-0">
+        <span class="text-white text-lg">Kết nối với chúng tôi</span>
+        <div class="flex space-x-3">
+          <a
+            href=""
+            class="text-white text-2xl border border-white p-2 rounded-full flex items-center justify-center">
+            <i nz-icon nzType="facebook" nzTheme="fill"> </i>
+          </a>
+          <a
+            href=""
+            class="text-white text-2xl border border-white p-2 rounded-full flex items-center justify-center">
+            <i nz-icon nzType="twitter" nzTheme="outline"> </i> </a
+          ><a
+            href=""
+            class="text-white text-2xl border border-white p-2 rounded-full flex items-center justify-center">
+            <i nz-icon nzType="instagram" nzTheme="outline"> </i> </a
+          ><a
+            href=""
+            class="text-white text-2xl border border-white p-2 rounded-full flex items-center justify-center">
+            <i nz-icon nzType="google-plus" nzTheme="outline"> </i> </a
+          ><a
+            href=""
+            class="text-white text-2xl border border-white p-2 rounded-full flex items-center justify-center">
+            <i nz-icon nzType="youtube" nzTheme="outline"> </i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-4 border-t border-gray-600" />
+
+  <div class="container mx-auto">
+    <nz-row nzGutter="[32,32]">
+      <nz-col nzXs="24" nzMd="6">
+        <div class="md:hidden">
+          @if (activeSection === 'about') {
+            <div>
+              <p class="text-sm">
+                CozyNest – Đem đến sự kết hợp hoàn hảo giữa thẩm mỹ và tiện
+                nghi. Mỗi sản phẩm là một tác phẩm nghệ thuật, nâng tầm không
+                gian sống của bạn. Chúng tôi không chỉ bán nội thất, mà còn xây
+                dựng tổ ấm mơ ước. Hãy để CozyNest đồng hành cùng bạn trên hành
+                trình tạo nên phong cách riêng
+              </p>
+              <p class="mt-4 text-sm">
+                <span
+                  nz-icon
+                  nzType="environment"
+                  nzTheme="outline"
+                  style="font-size: 16px; margin-right: 8px"></span>
+                Tầng 4, tòa nhà Flemington, số 182, đường Lê Đại Hành, phường
+                15, quận 11, Tp. Hồ Chí Minh.
+              </p>
+
+              <a routerLink="tel:19000091">
+                <p class="mt-2 text-sm text-white">
+                  <span
+                    nz-icon
+                    nzType="phone"
+                    nzTheme="outline"
+                    style="font-size: 16px; margin-right: 8px"></span>
+                  1900.000.XXX
+                </p>
+              </a>
+
+              <a
+                routerLink="
+                 mailto:admin@gmail.com"
+                class="text-white">
+                <p class="text-sm text-white">
+                  <span
+                    nz-icon
+                    nzType="mail"
+                    nzTheme="outline"
+                    style="font-size: 16px; margin-right: 8px"></span>
+                  admin&#64;gmail.com
+                </p>
+              </a>
+            </div>
+          }
+          <br />
+          <hr class="border-t border-gray-600" />
+        </div>
+
+        <div class="hidden md:block">
+          <h4 class="text-lg font-semibold mb-4 text-white">Về CozyNest</h4>
+          <p class="text-sm">
+            CozyNest – Đem đến sự kết hợp hoàn hảo giữa thẩm mỹ và tiện nghi.
+            Hãy để CozyNest đồng hành cùng bạn trên hành trình tạo nên phong
+            cách riêng.
+          </p>
+          <p class="mt-4 text-sm">
+            <i
+              nz-icon
+              nzType="environment"
+              nzTheme="outline"
+              style="font-size: 16px; margin-right: 8px"></i>
+            Tầng 4, tòa nhà Flemington, số 182, đường Lê Đại Hành, phường 15,
+            quận 11, Tp. Hồ Chí Minh.
+          </p>
+          <a routerLink="tel:19000091">
+            <p class="mt-2 text-sm text-white">
+              <span
+                nz-icon
+                nzType="phone"
+                nzTheme="outline"
+                style="font-size: 16px; margin-right: 8px"></span>
+              1900.000.XXX
+            </p>
+          </a>
+
+          <a
+            routerLink="
+             mailto:admin@gmail.com"
+            class="text-white">
+            <p class="text-sm text-white">
+              <span
+                nz-icon
+                nzType="mail"
+                nzTheme="outline"
+                style="font-size: 16px; margin-right: 8px"></span>
+              admin&#64;gmail.com
+            </p>
+          </a>
+        </div>
+      </nz-col>
+
+      <nz-col nzXs="24" nzMd="6">
+        <div class="md:hidden -mt-3">
+          <h4 class="text-lg font-semibold cursor-pointer">
+            <i nz-icon nzType="plus" class="float-right mt-2.5 text-xs"></i>
+            Hỗ trợ khách hàng
+          </h4>
+          @if (activeSection === 'support') {
+            <ul
+              class="space-y-2"
+              style="list-style-type: disc; padding-left: 20px">
+              <a routerLink="/">
+                <li class="text-sm text-white">Sản phẩm nổi bật</li>
+              </a>
+
+              <a routerLink="/products_page">
+                <li class="text-sm text-white">Tất cả sản phẩm</li>
+              </a>
+            </ul>
+            <ng-container>
+              <h4 class="text-lg font-semibold mt-6">Phương thức thanh toán</h4>
+              <div class="flex mr-[200px] mt-4">
+                <img
+                  src="https://res.cloudinary.com/didbnrsmz/image/upload/v1728645343/CozyNest/momo_iroppc.svg"
+                  alt="MOMO"
+                  class="h-8" />
+                <img
+                  src="https://res.cloudinary.com/didbnrsmz/image/upload/v1728645343/CozyNest/vnpay_new_lzopgz.svg"
+                  alt="Ahamove"
+                  class="h-8" />
+                <img
+                  src="https://res.cloudinary.com/didbnrsmz/image/upload/v1728645343/CozyNest/zalopay_qazloz.svg"
+                  alt="J&T Express"
+                  class="h-8" />
+              </div>
+            </ng-container>
+          }
+          <hr class="my-4 border-t border-gray-600" />
+        </div>
+
+        <div class="hidden md:block">
+          <h3 class="text-lg font-semibold mb-4 text-white">
+            Hỗ trợ khách hàng
+          </h3>
+          <ul
+            class="space-y-2"
+            style="list-style-type: disc; padding-left: 20px">
+            <a routerLink="/" class="text-sm text-white">
+              <li>Sản phẩm nổi bật</li>
+            </a>
+
+            <a routerLink="/products_page" class="text-sm text-white">
+              <li>Tất cả sản phẩm</li>
+            </a>
+          </ul>
+
+          <ng-container>
+            <h4 class="text-lg font-semibold mt-6 text-white">
+              Phương thức thanh toán
+            </h4>
+            <div class="flex mr-[160px] mt-4">
+              <img
+                src="https://res.cloudinary.com/didbnrsmz/image/upload/v1728645343/CozyNest/momo_iroppc.svg"
+                alt="MOMO"
+                class="h-8" />
+              <img
+                src="https://res.cloudinary.com/didbnrsmz/image/upload/v1728645343/CozyNest/vnpay_new_lzopgz.svg"
+                alt="Ahamove"
+                class="h-8" />
+              <img
+                src="https://res.cloudinary.com/didbnrsmz/image/upload/v1728645343/CozyNest/zalopay_qazloz.svg"
+                alt="J&T Express"
+                class="h-8" />
+            </div>
+          </ng-container>
+        </div>
+      </nz-col>
+
+      <nz-col nzXs="24" nzMd="6">
+        <div class="md:hidden -mt-3">
+          <h4 class="text-lg font-semibold py2 cursor-pointer">
+            Liên Kết
+            <i nz-icon nzType="plus" class="float-right mt-2.5 text-xs"></i>
+          </h4>
+          @if (activeSection === 'lienket') {
+            <ul
+              class="space-y-2"
+              style="list-style-type: disc; padding-left: 20px">
+              <a routerLink="/" class="text-sm text-white">
+                <li>Trang chủ</li>
+              </a>
+              <a routerLink="/products_page" class="text-sm text-white">
+                <li>Sản phẩm</li>
+              </a>
+              <a routerLink="/products_page" class="text-sm text-white">
+                <li>Trang sản phẩm</li>
+              </a>
+              <a routerLink="/intro" class="text-sm text-white">
+                <li>Giới thiệu</li>
+              </a>
+              <a routerLink="/" class="text-sm text-white">
+                <li>FAQs</li>
+              </a>
+              <a routerLink="/" class="text-sm text-white">
+                <li>Landing page</li>
+              </a>
+            </ul>
+          }
+          <hr class="my-2 border-t border-gray-600" />
+        </div>
+
+        <div class="hidden md:block">
+          <h4 class="text-lg font-semibold mb-4 cursor-pointer text-white">
+            Liên Kết
+          </h4>
+
+          <ul
+            class="space-y-2"
+            style="list-style-type: disc; padding-left: 20px">
+            <a routerLink="/" class="text-sm text-white">
+              <li>Trang chủ</li>
+            </a>
+            <a routerLink="/products_page" class="text-sm text-white">
+              <li>Sản phẩm</li>
+            </a>
+            <a routerLink="/products_page" class="text-sm text-white">
+              <li>Trang sản phẩm</li>
+            </a>
+            <a routerLink="/intro" class="text-sm text-white">
+              <li>Giới thiệu</li>
+            </a>
+            <a routerLink="/" class="text-sm text-white">
+              <li>FAQs</li>
+            </a>
+            <a routerLink="/" class="text-sm text-white">
+              <li>Landing page</li>
+            </a>
+          </ul>
+        </div>
+      </nz-col>
+
+      <nz-col nzXs="24" nzMd="6">
+        <div class="md:hidden -mt-5">
+          <h4 class="text-lg-font-semibold mb-4 cursor-pointer">
+            Chính sách
+            <i nz-icon nzType="plus" class="float-right mt-2.5 text-xs"></i>
+          </h4>
+
+          @if (activeSection === 'chinhsach') {
+            <ul
+              class="space y-2"
+              style="list-style-type: disc; padding-left: 20px">
+              <a routerLink="intro" class="text-sm text-white">
+                <li>Giới thiệu</li>
+              </a>
+              <a
+                routerLink="policy/chinh-sach-doi-tra"
+                class="text-sm text-white">
+                <li>Chính sách đổi trả</li>
+              </a>
+              <a
+                routerLink="policy/bao-hanh-va-bao-tri"
+                class="text-sm text-white">
+                <li>Chính sách bảo mật</li>
+              </a>
+              <a
+                routerLink="policy/chinh-sach-ban-hang"
+                class="text-sm text-white">
+                <li>Điều khoản dịch vụ</li>
+              </a>
+              <a routerLink="contact" class="text-sm text-white">
+                <li>Liên hệ</li>
+              </a>
+            </ul>
+          }
+        </div>
+
+        <div class="hidden md:block">
+          <h4 class="text-lg font-semibold mb-4 text-white">Chính sách</h4>
+          <ul
+            class="space y-2"
+            style="list-style-type: disc; padding-left: 20px">
+            <a routerLink="intro" class="text-sm text-white">
+              <li>Giới thiệu</li>
+            </a>
+            <a
+              routerLink="policy/chinh-sach-doi-tra"
+              class="text-sm text-white">
+              <li>Chính sách đổi trả</li>
+            </a>
+            <a
+              routerLink="policy/bao-hanh-va-bao-tri"
+              class="text-sm text-white">
+              <li>Chính sách bảo mật</li>
+            </a>
+            <a
+              routerLink="policy/chinh-sach-ban-hang"
+              class="text-sm text-white">
+              <li>Điều khoản dịch vụ</li>
+            </a>
+            <a routerLink="contact" class="text-sm text-white">
+              <li>Liên hệ</li>
+            </a>
+          </ul>
+        </div>
+      </nz-col>
+    </nz-row>
+    <hr class="my-4 border-t border-gray-600" />
+
+    <nz-row nzJustify="center">
+      <nz-col>
+        <p class="text-xs text-center mb-4">2024 Created by CozyNest</p>
+      </nz-col>
+    </nz-row>
+  </div>
+</footer>
