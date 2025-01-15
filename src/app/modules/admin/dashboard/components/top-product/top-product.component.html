@@ -1,0 +1,26 @@
+<div class="bg-white p-2 rounded-lg shadow-xl">
+  <h2 class="text-2xl font-semibold mb-5 text-center">
+    Top 5 Sản Phẩm Bán Chạy
+  </h2>
+  <nz-table [nzData]="topProducts" [nzShowPagination]="false">
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns">{{ column.title }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of topProducts">
+        <td>{{ item.SKU }}</td>
+        <td>
+          <img
+            [src]="item.image[0]"
+            alt="Product"
+            style="width: 50px; height: 50px" />
+        </td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.price | currency: 'VND' : 'symbol' }}</td>
+        <td>{{ item.quantity }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
