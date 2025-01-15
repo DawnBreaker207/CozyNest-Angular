@@ -6,7 +6,7 @@
         <p class="font-medium text-lg">Tổng doanh thu</p>
       </div>
       <span class="text-xl font-semibold">
-        {{ totalRevenue | currency: 'VND' }}
+        {{ totalRevenue$ | async | currency: 'VND' }}
       </span>
     </div>
   </div>
@@ -18,7 +18,7 @@
         <div class="font-medium text-lg text-black">Đơn hàng hoàn thành</div>
       </div>
       <span class="text-xl font-semibold text-black">
-        {{ ordersComplete }}
+        {{ ordersCompleted$ | async }}
       </span>
     </div>
   </a>
@@ -30,7 +30,7 @@
         <div class="font-medium text-lg text-black">Đơn hàng bị hủy</div>
       </div>
       <span class="text-xl font-semibold text-black">
-        {{ ordersCanceled }}
+        {{ ordersCanceled$ | async }}
       </span>
     </div>
   </a>
@@ -42,17 +42,30 @@
         <div class="font-medium text-lg text-black">Khách hàng</div>
       </div>
       <span class="text-xl font-semibold text-black">
-        {{ memberTotal }}
+        {{ memberTotal$ }}
       </span>
     </div>
   </a>
+</div>
 
-  <div class="mb-5">
-    <nz-select style="width: 200px">
-      <nz-option nzLabel="Top sản phẩm bán chạy"></nz-option>
-      <nz-option nzLabel="Đơn hàng gần đây"></nz-option>
-    </nz-select>
-  </div>
+<div class="mb-5">
+  <nz-select
+    [(ngModel)]="selectedComponent"
+    (ngModelChange)="handleComponentChange($event)"
+    nzAllowClear
+    nzPlaceHolder="Lựa chọn"
+    style="width: 200px">
+    <nz-option nzValue="RecentOrder" nzLabel="Đơn hàng gần đây"></nz-option>
+    <nz-option nzValue="TopProduct" nzLabel="Top sản phẩm bán chạy"></nz-option>
+  </nz-select>
+</div>
 
-  <div class="grid grid-cols-2 gap-x-8 gap-y-10"></div>
+<div class="grid grid-cols-2 gap-x-8 gap-y-10">
+  @if (selectedComponent === 'RecentOrder') {
+    <app-recent-order [latestOrders$]="orderSubject" />
+  }
+  @if (selectedComponent === 'TopProduct') {
+    <app-top-product [topProducts$]="orderSubject" />
+  }
+  <app-revenue />
 </div>
