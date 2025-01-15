@@ -2,14 +2,57 @@
   <div class="rounded-xl shadow-xl">
     <div class="flex flex-col gap-5 p-5">
       <div class="flex gap-3 items center">
-        <img
-          src="/src/assets//images/content/thu-nhap.png"
-          alt=""
-          class="size-8" />
-
+        <img src="assets/images/content/thu-nhap.png" alt="" class="size-8" />
         <p class="font-medium text-lg">Tổng doanh thu</p>
       </div>
-      <span class="text-xl font-semibold"> </span>
+      <span class="text-xl font-semibold">
+        {{ totalRevenue | currency: 'VND' }}
+      </span>
     </div>
   </div>
+
+  <a routerLink="/admin/order?status=Completed" class="rounded-xl shadow-xl">
+    <div class="flex flex-col gap-5 p-5">
+      <div class="flex gap-3 items-center">
+        <img src="/assets/images/content/cart.png" alt="" class="size-8" />
+        <div class="font-medium text-lg text-black">Đơn hàng hoàn thành</div>
+      </div>
+      <span class="text-xl font-semibold text-black">
+        {{ ordersComplete }}
+      </span>
+    </div>
+  </a>
+
+  <a routerLink="/admin/order?status=Cancelled" class="rounded-xl shadow-xl">
+    <div class="flex flex-col gap-5 p-5">
+      <div class="flex gap-3 items-center">
+        <img src="assets/images/content/delete.png" alt="" class="size-8" />
+        <div class="font-medium text-lg text-black">Đơn hàng bị hủy</div>
+      </div>
+      <span class="text-xl font-semibold text-black">
+        {{ ordersCanceled }}
+      </span>
+    </div>
+  </a>
+
+  <a routerLink="/admin/customer?role=member" class="rounded-xl shadow-xl">
+    <div class="flex flex-col gap-5 p-5">
+      <div class="flex gap-3 items-center">
+        <img src="assets/images/content/cart.png" alt="" class="size-8" />
+        <div class="font-medium text-lg text-black">Khách hàng</div>
+      </div>
+      <span class="text-xl font-semibold text-black">
+        {{ memberTotal }}
+      </span>
+    </div>
+  </a>
+
+  <div class="mb-5">
+    <nz-select style="width: 200px">
+      <nz-option nzLabel="Top sản phẩm bán chạy"></nz-option>
+      <nz-option nzLabel="Đơn hàng gần đây"></nz-option>
+    </nz-select>
+  </div>
+
+  <div class="grid grid-cols-2 gap-x-8 gap-y-10"></div>
 </div>

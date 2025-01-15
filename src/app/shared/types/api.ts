@@ -1,4 +1,5 @@
 export interface ApiRes<T> {
+  message: string;
   res: T;
   pagination?: {
     currentPage?: number;
