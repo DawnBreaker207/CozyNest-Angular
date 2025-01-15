@@ -8,11 +8,11 @@ export interface ApiRes<T> {
   };
 }
 
-export type IQuery = {
+export type Query = {
   _order: string;
   _sort: string;
   _page: number | string;
   _limit: number;
   _category: number;
-  _id: string | null;
+  _id: string;
 };

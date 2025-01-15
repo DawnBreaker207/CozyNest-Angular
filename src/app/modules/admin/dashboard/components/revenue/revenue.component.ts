@@ -45,7 +45,7 @@ export class RevenueComponent implements OnInit, OnChanges {
   }
 
   fetchRevenueData(): void {
-    this.service.getAll$.subscribe((data: any) => {
+    this.service.getAll$().subscribe((data: any) => {
       const orders = data.filter((order: any) => order.status === 'Completed');
 
       // Khởi tạo các đối tượng doanh thu theo tháng, tuần, ngày

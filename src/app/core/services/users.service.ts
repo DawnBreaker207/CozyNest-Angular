@@ -1,7 +1,7 @@
-import { ApiRes } from '@/app/shared/types/api';
+import { ApiRes, Query } from '@/app/shared/types/api';
 import { User } from '@/app/shared/types/user';
 import { environment } from '@/environments/environment.development';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 
@@ -11,9 +11,12 @@ import { catchError, map, Observable, of } from 'rxjs';
 export class UsersService {
   private BASE_PATH = environment.apiUrl;
   constructor(private http: HttpClient) {}
-  getAll$(input?: Partial<User>): Observable<User[]> {
+  getAll$(input?: Partial<Query>): Observable<User[]> {
+    const params = input
+      ? new HttpParams({ fromObject: input })
+      : new HttpParams();
     return this.http
-      .get<ApiRes<User[]>>(`${this.BASE_PATH}/users`, { params: input })
+      .get<ApiRes<User[]>>(`${this.BASE_PATH}/users`, { params })
       .pipe(
         map(user => user.res || []),
         catchError(() => of([]))

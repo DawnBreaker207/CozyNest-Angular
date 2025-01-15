@@ -1,9 +1,9 @@
 import { environment } from '@/environments/environment.development';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, map, Observable, of } from 'rxjs';
 import { Category } from '../../shared/types/category';
-import { ApiRes } from '../../shared/types/api';
+import { ApiRes, Query } from '../../shared/types/api';
 
 @Injectable({
   providedIn: 'root',
@@ -11,13 +11,17 @@ import { ApiRes } from '../../shared/types/api';
 export class CategoryService {
   BASE_PATH = environment.apiUrl;
   constructor(private http: HttpClient) {}
-  getAll$: Observable<Category[]> = this.http
-    .get<ApiRes<Category[]>>(`${this.BASE_PATH}/categories`)
-    .pipe(
-      map(category => category.res || []),
-      catchError(() => of([]))
-    );
-
+  getAll$(input?: Partial<Query>): Observable<Category[]> {
+    const params = input
+      ? new HttpParams({ fromObject: input })
+      : new HttpParams();
+    return this.http
+      .get<ApiRes<Category[]>>(`${this.BASE_PATH}/categories`, { params })
+      .pipe(
+        map(category => category.res || []),
+        catchError(() => of([]))
+      );
+  }
   getOne$(id: string): Observable<Category> {
     return this.http
       .get<ApiRes<Category>>(`${this.BASE_PATH}/categories/${id}`)
