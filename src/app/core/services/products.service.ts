@@ -14,7 +14,7 @@ export class ProductsService {
   getAll$: Observable<Products[]> = this.http
     .get<ApiRes<Products[]>>(`${this.BASE_PATH}/products`)
     .pipe(
-      map(products => products.res),
+      map(products => products.res || []),
       catchError(() => of([]))
     );
 

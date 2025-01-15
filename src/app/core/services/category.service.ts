@@ -14,7 +14,7 @@ export class CategoryService {
   getAll$: Observable<Category[]> = this.http
     .get<ApiRes<Category[]>>(`${this.BASE_PATH}/categories`)
     .pipe(
-      map(category => category.res),
+      map(category => category.res || []),
       catchError(() => of([]))
     );
 

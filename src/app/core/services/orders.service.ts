@@ -14,7 +14,7 @@ export class OrdersService {
   getAll$: Observable<Order[]> = this.http
     .get<ApiRes<Order[]>>(`${this.BASE_PATH}/orders`)
     .pipe(
-      map(order => order.res),
+      map(order => order.res || []),
       catchError(() => of([]))
     );
 }

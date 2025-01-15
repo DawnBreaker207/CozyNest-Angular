@@ -15,7 +15,7 @@ export class UsersService {
     return this.http
       .get<ApiRes<User[]>>(`${this.BASE_PATH}/users`, { params: input })
       .pipe(
-        map(user => user.res),
+        map(user => user.res || []),
         catchError(() => of([]))
       );
   }
