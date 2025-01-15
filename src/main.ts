@@ -14,6 +14,7 @@ import { en_US, provideNzI18n } from 'ng-zorro-antd/i18n';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 registerLocaleData(en);
 
 bootstrapApplication(AppComponent, {
@@ -26,7 +27,8 @@ bootstrapApplication(AppComponent, {
       BrowserModule,
       FormsModule,
       NzNotificationModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      CanvasJSAngularChartsModule
     ),
   ],
 }).catch(err => console.error(err));
