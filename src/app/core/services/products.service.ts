@@ -5,28 +5,30 @@ import { catchError, map, Observable, of } from 'rxjs';
 import { Products } from '../../shared/types/products';
 import { ApiRes } from '../../shared/types/api';
 
-const BASE_PATH = environment.apiUrl;
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsService {
+  private BASE_PATH = environment.apiUrl;
   constructor(private http: HttpClient) {}
   getAll$: Observable<Products[]> = this.http
-    .get<ApiRes<Products[]>>(`${BASE_PATH}/products`)
+    .get<ApiRes<Products[]>>(`${this.BASE_PATH}/products`)
     .pipe(
       map(products => products.res),
       catchError(() => of([]))
     );
 
   getOne$(id: string): Observable<Products> {
-    return this.http.get<ApiRes<Products>>(`${BASE_PATH}/products/${id}`).pipe(
-      map(products => products.res),
-      catchError(() => of())
-    );
+    return this.http
+      .get<ApiRes<Products>>(`${this.BASE_PATH}/products/${id}`)
+      .pipe(
+        map(products => products.res),
+        catchError(() => of())
+      );
   }
   create$(inputData: Products): Observable<Products> {
     return this.http
-      .post<ApiRes<Products>>(`${BASE_PATH}/products`, inputData)
+      .post<ApiRes<Products>>(`${this.BASE_PATH}/products`, inputData)
       .pipe(
         map(products => products.res),
         catchError(() => of())
@@ -34,7 +36,7 @@ export class ProductsService {
   }
   update$(id: string, inputData: Products): Observable<Products> {
     return this.http
-      .put<ApiRes<Products>>(`${BASE_PATH}/products/${id}`, inputData)
+      .put<ApiRes<Products>>(`${this.BASE_PATH}/products/${id}`, inputData)
       .pipe(
         map(products => products.res),
         catchError(() => of())
@@ -42,12 +44,12 @@ export class ProductsService {
   }
   delete$(id: string | number | undefined): Observable<void> {
     return this.http
-      .delete<void>(`${BASE_PATH}/products/${id}`)
+      .delete<void>(`${this.BASE_PATH}/products/${id}`)
       .pipe(catchError(() => of()));
   }
   hide$(id: string, input: Partial<Products>): Observable<void> {
     return this.http
-      .patch<void>(`${BASE_PATH}/products/${id}`, input)
+      .patch<void>(`${this.BASE_PATH}/products/${id}`, input)
       .pipe(catchError(() => of()));
   }
 }

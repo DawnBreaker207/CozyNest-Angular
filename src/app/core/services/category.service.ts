@@ -5,14 +5,14 @@ import { catchError, map, Observable, of } from 'rxjs';
 import { Category } from '../../shared/types/category';
 import { ApiRes } from '../../shared/types/api';
 
-const BASE_PATH = environment.apiUrl;
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
+  BASE_PATH = environment.apiUrl;
   constructor(private http: HttpClient) {}
   getAll$: Observable<Category[]> = this.http
-    .get<ApiRes<Category[]>>(`${BASE_PATH}/categories`)
+    .get<ApiRes<Category[]>>(`${this.BASE_PATH}/categories`)
     .pipe(
       map(category => category.res),
       catchError(() => of([]))
@@ -20,7 +20,7 @@ export class CategoryService {
 
   getOne$(id: string): Observable<Category> {
     return this.http
-      .get<ApiRes<Category>>(`${BASE_PATH}/categories/${id}`)
+      .get<ApiRes<Category>>(`${this.BASE_PATH}/categories/${id}`)
       .pipe(
         map(products => products.res),
         catchError(() => of())
@@ -29,7 +29,7 @@ export class CategoryService {
 
   create$(inputData: Partial<Category>): Observable<Category> {
     return this.http
-      .post<ApiRes<Category>>(`${BASE_PATH}/categories`, inputData)
+      .post<ApiRes<Category>>(`${this.BASE_PATH}/categories`, inputData)
       .pipe(
         map(products => products.res),
         catchError(() => of())
@@ -38,7 +38,7 @@ export class CategoryService {
 
   update$(id: string, inputData: Partial<Category>): Observable<Category> {
     return this.http
-      .put<ApiRes<Category>>(`${BASE_PATH}/categories/${id}`, inputData)
+      .put<ApiRes<Category>>(`${this.BASE_PATH}/categories/${id}`, inputData)
       .pipe(
         map(products => products.res),
         catchError(() => of())
@@ -47,13 +47,13 @@ export class CategoryService {
 
   delete$(id: string): Observable<void> {
     return this.http
-      .delete<void>(`${BASE_PATH}/categories/${id}`)
+      .delete<void>(`${this.BASE_PATH}/categories/${id}`)
       .pipe(catchError(() => of()));
   }
 
   hide$(id: string, input: Partial<Category>): Observable<void> {
     return this.http
-      .patch<void>(`${BASE_PATH}/categories/${id}`, input)
+      .patch<void>(`${this.BASE_PATH}/categories/${id}`, input)
       .pipe(catchError(() => of()));
   }
 }

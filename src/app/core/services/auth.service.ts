@@ -5,29 +5,31 @@ import { catchError, map, Observable, of } from 'rxjs';
 import { User } from '../../shared/types/user';
 import { ApiRes } from '../../shared/types/api';
 
-const BASE_PATH = environment.apiUrl;
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  BASE_PATH = environment.apiUrl;
   constructor(private http: HttpClient) {}
   register$(input: Partial<User>): Observable<User> {
     return this.http
-      .post<ApiRes<User>>(`${BASE_PATH}/auth/register`, input)
+      .post<ApiRes<User>>(`${this.BASE_PATH}/auth/register`, input)
       .pipe(
         map(user => user.res),
         catchError(() => of())
       );
   }
   login$(input: Partial<User>): Observable<User> {
-    return this.http.post<ApiRes<User>>(`${BASE_PATH}/auth/login`, input).pipe(
-      map(user => user.res),
-      catchError(() => of())
-    );
+    return this.http
+      .post<ApiRes<User>>(`${this.BASE_PATH}/auth/login`, input)
+      .pipe(
+        map(user => user.res),
+        catchError(() => of())
+      );
   }
   forgot$(input: Partial<User>) {
     return this.http
-      .post<ApiRes<User>>(`${BASE_PATH}/users/forgotPassword`, input)
+      .post<ApiRes<User>>(`${this.BASE_PATH}/users/forgotPassword`, input)
       .pipe(
         map(user => user.res),
         catchError(() => of())
