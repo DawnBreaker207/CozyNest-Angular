@@ -29,7 +29,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 })
 export class RevenueComponent implements OnInit, OnChanges {
   base_path = environment.apiUrl;
-  selectedPeriod: 'day' | 'week' | 'month' = 'month'; // Lựa chọn mặc định là 'month'
+  selectedPeriod: 'day' | 'week' | 'month' = 'day'; // Lựa chọn mặc định là 'month'
   chartOptions = {}; // Dữ liệu biểu đồ
 
   constructor(private service: OrdersService) {}
@@ -80,8 +80,18 @@ export class RevenueComponent implements OnInit, OnChanges {
           {
             type: 'column',
             dataPoints: revenueData,
+            toolTipContent: '<b>{label}</b><br/>Doanh thu: {formattedRevenue}',
           },
         ],
+        axisY: {
+          labelFormatter: (e: any) => {
+            // Định dạng trục y dưới dạng tiền tệ VND
+            return e.value.toLocaleString('vi-VN', {
+              style: 'currency',
+              currency: 'VND',
+            });
+          },
+        },
       };
     });
   }
@@ -92,12 +102,38 @@ export class RevenueComponent implements OnInit, OnChanges {
     // Sử dụng dữ liệu theo thời gian đã được tính toán
     const revenueByPeriod = revenue[this.selectedPeriod] || {};
 
-    dataPoints = Object.keys(revenueByPeriod).map(key => ({
-      label: key,
-      y: revenueByPeriod[key],
-    }));
+    dataPoints = Object.keys(revenueByPeriod).map(key => {
+      const totalRevenue = revenueByPeriod[key];
+
+      const formattedDate = this.formatDate(key);
+      // Thêm đơn vị tiền tệ vào doanh thu
+      const formattedRevenue = totalRevenue.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND',
+      });
+      return {
+        label: formattedDate,
+        y: totalRevenue,
+        formattedRevenue: formattedRevenue, // Định dạng doanh thu với đơn vị tiền tệ
+      };
+    });
 
     return dataPoints;
+  }
+
+  formatDate(dateString: string): string {
+    const parts = dateString.split('-'); // Tách ngày theo dấu '-'
+    let formattedDate = '';
+
+    if (parts.length === 3) {
+      // Định dạng ngày dd/mm/yyyy
+      formattedDate = `${parts[2]}/${parts[1]}/${parts[0]}`;
+    } else if (parts.length === 2) {
+      // Nếu chỉ có tháng và năm (yyyy-mm), giả sử ngày là 01
+      formattedDate = `01/${parts[1]}/${parts[0]}`;
+    }
+
+    return formattedDate;
   }
 
   onPeriodChange(period: 'day' | 'week' | 'month'): void {
