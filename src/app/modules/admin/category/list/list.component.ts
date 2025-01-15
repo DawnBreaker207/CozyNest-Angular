@@ -12,7 +12,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzTagModule } from 'ng-zorro-antd/tag';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { map, Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-category-list',
@@ -41,13 +41,14 @@ export class ListCategoryComponent implements OnInit, OnDestroy {
     { title: 'Ngày thêm' },
     { title: 'Action' },
   ];
-  category$: Observable<Category[]> = new Observable();
+  category$: Observable<Category[]> = this.service.getAll$.pipe(
+    map(category => category || [])
+  );
   private unsubscribe = new Subject<void>();
 
   constructor(private service: CategoryService) {}
   ngOnInit(): void {
-    this.category$ = this.service.getAll$;
-    this.category$.pipe(takeUntil(this.unsubscribe));
+    this.category$.pipe(takeUntil(this.unsubscribe)).subscribe();
   }
   ngOnDestroy(): void {
     this.unsubscribe.next();

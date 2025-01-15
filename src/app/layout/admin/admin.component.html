@@ -16,7 +16,7 @@
       <!-- <ng-container *ngIf=""> -->
       <li nz-menu-item>
         <i nz-icon nzType="dashboard" nzTheme="outline"></i>
-        <span [routerLink]="['/admin/dashboard']"> Thống kê </span>
+        <span [routerLink]="['dashboard']"> Thống kê </span>
       </li>
 
       <li nz-submenu nzOpen nzTitle="Sản phẩm" nzIcon="apartment">
@@ -25,21 +25,21 @@
             nz-menu-item
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: false }">
-            <a [routerLink]="['/admin/product']">Danh sách</a>
+            <a [routerLink]="['products']">Danh sách</a>
           </li>
 
           <li
             nz-menu-item
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: false }">
-            <a [routerLink]="['/admin/product/add']">Biến thể</a>
+            <a [routerLink]="['product/add']">Biến thể</a>
           </li>
         </ul>
       </li>
 
-      <li nz-menu-item>
+      <li nz-menu-item [routerLink]="['categories']">
         <i nz-icon nzType="ordered-list" nzTheme="outline"></i>
-        <span [routerLink]="['/admin/category']"> Danh mục </span>
+        <span> Danh mục </span>
       </li>
 
       <li nz-submenu nzOpen nzTitle="Đơn hàng" nzIcon="shopping-cart">
@@ -69,7 +69,7 @@
 
       <li nz-menu-item>
         <i nz-icon nzType="user" nzTheme="outline"></i>
-        <span [routerLink]="['/admin/category']"> Khách hàng </span>
+        <span [routerLink]="['category']"> Khách hàng </span>
       </li>
       <!-- </ng-container> -->
     </ul>

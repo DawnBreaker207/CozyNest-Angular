@@ -21,14 +21,17 @@
   </nz-select>
 </div>
 
-<nz-table nzShowPagination>
+<nz-table
+  nzShowPagination="true"
+  *ngIf="category$ | async as categories"
+  [nzData]="categories">
   <thead>
     <tr>
       <th *ngFor="let column of columns">{{ column.title }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of category$ | async">
+    <tr *ngFor="let data of categories">
       <td>
         <nz-space nzSize="middle">
           <div>

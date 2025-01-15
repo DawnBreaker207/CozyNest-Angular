@@ -63,7 +63,7 @@ export class ListProductComponent implements OnInit, OnDestroy {
         .delete$(id)
         .pipe(takeUntil(this.unsubscribe))
         .subscribe(() => {
-          this.products$ = this.service.getAll$;
+          // this.products$ = this.service.getAll$;
         });
     }
   }
