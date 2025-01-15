@@ -13,7 +13,7 @@ export const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     children: [
-      { path: 'admin', pathMatch: 'full', redirectTo: '/dashboard' },
+      { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
       {
         path: 'dashboard',
         component: DashboardComponent,

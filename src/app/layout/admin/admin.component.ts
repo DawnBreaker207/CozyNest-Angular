@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NzIconDirective } from 'ng-zorro-antd/icon';
@@ -30,6 +31,7 @@ import {
     NzContentComponent,
     RouterOutlet,
     NzFooterComponent,
+    CommonModule,
   ],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss',

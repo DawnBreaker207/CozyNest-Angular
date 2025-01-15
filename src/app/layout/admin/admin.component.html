@@ -1,83 +1,77 @@
 <nz-layout class="min-h-screen">
   <nz-sider
-    class="menu-sidebar"
+    class="sticky top-0 h-screen"
     nzCollapsible
     nzWidth="256px"
     nzBreakpoint="md"
+    [nzTheme]="'dark'"
     [(nzCollapsed)]="isCollapsed"
     [nzTrigger]="null">
-    <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
-        <h1>Ant Design Of Angular</h1>
-      </a>
-    </div>
     <ul
       nz-menu
       nzTheme="dark"
       nzMode="inline"
+      class="mt-1"
       [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <!-- <ng-container *ngIf=""> -->
+      <li nz-menu-item>
+        <i nz-icon nzType="dashboard" nzTheme="outline"></i>
+        <span [routerLink]="['/admin/dashboard']"> Thống kê </span>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="Sản phẩm" nzIcon="apartment">
         <ul>
-          <li nz-submenu nzTitle="Product">
-            <ul>
-              <li
-                nz-menu-item
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: false }">
-                <a [routerLink]="['/admin/product']">List</a>
-              </li>
-              <li
-                nz-menu-item
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: false }">
-                <a [routerLink]="['/admin/product/add']">Add</a>
-              </li>
-              <ul>
-                <li nz-submenu nzTitle="Variants">
-                  <ul>
-                    <li
-                      nz-menu-item
-                      routerLinkActive="active"
-                      [routerLinkActiveOptions]="{ exact: false }">
-                      <a [routerLink]="['/admin/variant']">List</a>
-                    </li>
-                    <li
-                      nz-menu-item
-                      routerLinkActive="active"
-                      [routerLinkActiveOptions]="{ exact: false }">
-                      <a [routerLink]="['/admin/variant/add']">Add</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </ul>
+          <li
+            nz-menu-item
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: false }">
+            <a [routerLink]="['/admin/product']">Danh sách</a>
           </li>
-          <li nz-submenu nzTitle="Category">
-            <ul>
-              <li
-                nz-menu-item
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: false }">
-                <a [routerLink]="['/admin/category']">List</a>
-              </li>
-              <li
-                nz-menu-item
-                routerLinkActive="active"
-                [routerLinkActiveOptions]="{ exact: false }">
-                <a [routerLink]="['/admin/category/add']">Add</a>
-              </li>
-            </ul>
+
+          <li
+            nz-menu-item
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: false }">
+            <a [routerLink]="['/admin/product/add']">Biến thể</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+
+      <li nz-menu-item>
+        <i nz-icon nzType="ordered-list" nzTheme="outline"></i>
+        <span [routerLink]="['/admin/category']"> Danh mục </span>
+      </li>
+
+      <li nz-submenu nzOpen nzTitle="Đơn hàng" nzIcon="shopping-cart">
         <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
+          <li
+            nz-menu-item
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: false }">
+            <a [routerLink]="['/admin/order']">Danh sách</a>
+          </li>
+
+          <li
+            nz-menu-item
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: false }">
+            <a [routerLink]="['/admin/order_returns']">Hoàn trả</a>
+          </li>
+
+          <li
+            nz-menu-item
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: false }">
+            <a [routerLink]="['/admin/order_refunds']">Hoàn tiền</a>
           </li>
         </ul>
       </li>
+
+      <li nz-menu-item>
+        <i nz-icon nzType="user" nzTheme="outline"></i>
+        <span [routerLink]="['/admin/category']"> Khách hàng </span>
+      </li>
+      <!-- </ng-container> -->
     </ul>
   </nz-sider>
   <nz-layout>
