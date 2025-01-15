@@ -1,32 +1,79 @@
-<ng-container *ngIf="category$ | async as categories">
-  <nz-table #nzTable [nzData]="categories" [nzPageSize]="10" nzShowPagination>
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Type</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let i of nzTable.data">
-        <td>{{ i._id }}</td>
-        <td>{{ i.name }}</td>
-        <td>{{ i.type }}</td>
-        <td>
+<div class="mb-5 flex items-center justify-between">
+  <h1 class="text-2xl font-bold mb-4">Quản lý danh mục</h1>
+  <a routerLink="/admin/categories/add">
+    <button nz-button nzType="primary">
+      <i nz-icon nzType="plus" nzTheme="outline"></i>
+    </button>
+  </a>
+</div>
+
+<div class="mb-5 flex items-center justify-between">
+  <nz-input-group nzAddOnBeforeIcon="search">
+    <input
+      nz-input
+      placeholder="Tìm kiếm theo tên danh mục"
+      style="width: 500px"
+      type="text" />
+  </nz-input-group>
+  <nz-select style="width: 150px" nzPlaceHolder="Sắp xếp">
+    <nz-option nzLabel="Mới nhất" nzValue="newest"></nz-option>
+    <nz-option nzLabel="Cũ nhất" nzValue="oldest"></nz-option>
+  </nz-select>
+</div>
+
+<nz-table nzShowPagination>
+  <thead>
+    <tr>
+      <th *ngFor="let column of columns">{{ column.title }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of category$ | async">
+      <td>
+        <nz-space nzSize="middle">
+          <div>
+            <div>{{ data?.name }}</div>
+            <div style="color: gray">{{ data?.products?.length }} Sản phẩm</div>
+          </div>
+        </nz-space>
+      </td>
+      <td>
+        <img
+          [src]="data?.thumbnail"
+          alt="Category Thumbnail"
+          style="
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+          " />
+      </td>
+      <td>
+        <nz-tag [nzColor]="data?.isHidden ? 'red' : 'green'">{{
+          data?.isHidden ? 'Ẩn' : 'Hiển thị'
+        }}</nz-tag>
+      </td>
+      <td>
+        {{ data.createdAt | date: 'dd/MM/yyyy' }}
+      </td>
+      <td>
+        <nz-space nzSize="middle">
+          <a routerLink="/admin/categories/{{ data?._id }}/edit">
+            <button nz-button>
+              <i nz-icon nzType="edit"></i>
+            </button>
+          </a>
           <a
-            nz-button
-            nzType="text"
-            class="bg-yellow-400 hover:bg-yellow-600"
-            [routerLink]="['edit', i._id]"
-            routerLinkActive="router-link-active"
-            >Edit</a
-          >
-          <nz-divider nzType="vertical"></nz-divider>
-          <a href="#" (click)="del()">Remove</a>
-          <nz-divider nzType="vertical"></nz-divider>
-        </td>
-      </tr>
-    </tbody>
-  </nz-table>
-</ng-container>
+            nz-popconfirm
+            nzPopconfirmTitle="Bạn chắc chắn muốn xóa danh mục này không ?"
+            nzOkText="Có"
+            nzCancelText="Không">
+            <button nz-button nzDanger>
+              <i nz-icon nzType="eye-invisible" nzTheme="outline"></i>
+            </button>
+          </a>
+        </nz-space>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
