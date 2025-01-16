@@ -47,7 +47,7 @@ export class ListProductComponent implements OnInit, OnDestroy {
   products$: Observable<Products[]> = new Observable();
   private unsubscribe = new Subject<void>();
   ngOnInit(): void {
-    this.products$ = this.service.getAll$;
+    this.products$ = this.service.getAll$();
 
     this.products$.pipe(takeUntil(this.unsubscribe));
   }

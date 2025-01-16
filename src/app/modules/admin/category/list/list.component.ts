@@ -41,9 +41,9 @@ export class ListCategoryComponent implements OnInit, OnDestroy {
     { title: 'Ngày thêm' },
     { title: 'Action' },
   ];
-  category$: Observable<Category[]> = this.service.getAll$.pipe(
-    map(category => category || [])
-  );
+  category$: Observable<Category[]> = this.service
+    .getAll$()
+    .pipe(map(category => category || []));
   private unsubscribe = new Subject<void>();
 
   constructor(private service: CategoryService) {}

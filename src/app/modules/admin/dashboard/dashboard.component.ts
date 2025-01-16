@@ -64,9 +64,9 @@ export class DashboardComponent {
     private orderService: OrdersService,
     private userService: UsersService
   ) {
-    this.orderService.getAll$.subscribe(orders =>
-      this.orderSubject.next(orders)
-    );
+    this.orderService
+      .getAll$()
+      .subscribe(orders => this.orderSubject.next(orders));
 
     this.userService
       .getAll$()

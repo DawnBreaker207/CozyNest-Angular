@@ -11,7 +11,7 @@ import { Products } from '../../shared/types/products';
 export class ProductsService {
   private BASE_PATH = environment.apiUrl;
   constructor(private http: HttpClient) {}
-  getAll$(input: Partial<Query>): Observable<Products[]> {
+  getAll$(input?: Partial<Query>): Observable<Products[]> {
     const params = input
       ? new HttpParams({ fromObject: input })
       : new HttpParams();
