@@ -1,1 +1,83 @@
-<p>register works!</p>
+<div
+  class="flex justify-center items-center min-h-screen bg-gray-100 bg-cover bg-center bg-no-repeat"
+  style="
+    background-image: url('https://nhaxinh.com/wp-content/uploads/2021/11/nha-xinh-banner-thiet-ke-noi-that-new.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  ">
+  <div
+    class="bg-white p-6 sm:p-8 md:p-10 lg:p-12 xl:p-16 rounded-lg shadow-md w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl bg-opacity-60">
+    <h2
+      class="text-xl sm:text-2xl md:text-3xl font-bold text-center md-4 sm:mb-6">
+      Đăng ký
+    </h2>
+    <form nz-form nzLayout="vertical" name="register" autocomplete="off">
+      <nz-form-item>
+        <nz-form-label nzFor="username">Tên đăng nhập</nz-form-label>
+        <nz-form-control>
+          <input nz-input class="p-2 rounded-lg" type="text" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label nzFor="email">Email</nz-form-label>
+        <nz-form-control>
+          <input nz-input class="p-2 rounded-lg" type="email" />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label nzFor="password">Mật khẩu</nz-form-label>
+        <nz-form-control>
+          <nz-input-group class="p-2 rounded-lg" [nzSuffix]="suffixTemplate">
+            <input [type]="passwordVisible ? 'text' : 'password'" nz-input />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label nzFor="confirmPassword">Xác nhận mật khẩu</nz-form-label>
+        <nz-form-control>
+          <nz-input-group class="p-2 rounded-lg" [nzSuffix]="suffixTemplate">
+            <input [type]="passwordVisible ? 'text' : 'password'" nz-input />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <label nz-checkbox class="rounded-lg">
+            Tôi đồng ý với <a href="/">Điều khoản và Dịch vụ</a></label
+          >
+        </nz-form-control>
+        <br />
+        <span class="flex">
+          Bạn đã có tài khoản ?
+          <p>
+            <a class="text-blue-500 ml-1" href="/login"> Đăng nhập </a>
+          </p>
+        </span>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control>
+          <button
+            nz-button
+            nzType="primary"
+            class="w-full bg-blue-500 hover:bg-blue-600 rounded-lg">
+            Đăng ký
+          </button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>
+
+<ng-template #suffixTemplate>
+  <span
+    nz-icon
+    class="ant-input-password-icon"
+    [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+    (click)="passwordVisible = !passwordVisible"></span>
+</ng-template>
