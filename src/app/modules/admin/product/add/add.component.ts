@@ -63,7 +63,7 @@ export class AddProductComponent implements OnInit {
     private notification: NotificationsService
   ) {}
   ngOnInit(): void {
-    this.categories$ = this.categoryService.getAll$;
+    this.categories$ = this.categoryService.getAll$();
     this.formProduct = this.fb.group({
       originId: [''],
       name: ['', [Validators.required]],

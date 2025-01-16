@@ -5,21 +5,16 @@ import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
-  Validators,
+  FormsModule,
   ReactiveFormsModule,
+  Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ɵNzTransitionPatchDirective } from 'ng-zorro-antd/core/transition-patch';
-import { NzWaveDirective } from 'ng-zorro-antd/core/wave';
-import { NzButtonComponent } from 'ng-zorro-antd/button';
-import { NzInputDirective } from 'ng-zorro-antd/input';
-import { NzRowDirective, NzColDirective } from 'ng-zorro-antd/grid';
-import {
-  NzFormDirective,
-  NzFormItemComponent,
-  NzFormLabelComponent,
-  NzFormControlComponent,
-} from 'ng-zorro-antd/form';
+import { Router, RouterLink } from '@angular/router';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 @Component({
   selector: 'app-login',
@@ -28,19 +23,18 @@ import {
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    NzFormDirective,
-    NzRowDirective,
-    NzFormItemComponent,
-    NzColDirective,
-    NzFormLabelComponent,
-    NzFormControlComponent,
-    NzInputDirective,
-    NzButtonComponent,
-    NzWaveDirective,
-    ɵNzTransitionPatchDirective,
+    NzFormModule,
+    NzCheckboxModule,
+    FormsModule,
+    NzButtonModule,
+    NzInputModule,
+    NzIconModule,
+    RouterLink,
   ],
 })
 export class LoginComponent implements OnInit {
+  passwordVisible = false;
+  password?: string;
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
